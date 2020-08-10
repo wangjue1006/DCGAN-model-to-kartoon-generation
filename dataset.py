@@ -13,6 +13,7 @@ class GAN_Dataset(Dataset):
         transform = transforms.Compose([
             transforms.Resize(96),
             transforms.CenterCrop(96),
+            transforms.RandomCrop(96),
             transforms.ToTensor(),
             transforms.Normalize([0.5,0.5, 0.5], [0.5,0.5, 0.5])
         ])
