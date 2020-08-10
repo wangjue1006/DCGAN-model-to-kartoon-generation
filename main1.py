@@ -54,11 +54,11 @@ def train(dataloader,epoches):
         for x in dataloader:
             optim_decoder.zero_grad()
 
-            x=x.cuda()
+            x=x.to(device)
 
-            noise=torch.randn(len(x), args.nz, 1, 1,).cuda()
+            noise=torch.randn(len(x), args.nz, 1, 1,).to(device)
             noise_img = encoder(noise)
-            label = torch.ones(len(x)).cuda()
+            label = torch.ones(len(x)).to(device)
             positive_label = label * 1
             negetive_label = label * 0
             pred_y=decoder(x)
